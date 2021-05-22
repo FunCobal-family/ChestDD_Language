@@ -1,2 +1,3 @@
 # ChestDD_Language
-Data Description Language for Multipurpose and Specialized Purpose, that soft-forked Chess, YAML, TOML.
+
+A Data Description Language for Multipurpose and Special-purpose data, based on the ideas of BigTable, and enhanced with reference to Chest, YAML and TOML.
