@@ -1,0 +1,7 @@
+name: Node_Manager
+version: 0.0.1
+environment:
+  sdk: '>=2.10.0 <3.0.0'
+dependency:
+  args: any
+  binary: ^2.0.0
