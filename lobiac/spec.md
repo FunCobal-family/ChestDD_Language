@@ -10,9 +10,11 @@ Lobiac 言語には、Lobiac Article、Resource Index Table、及び Lobiac Pack
 - リソース梱束式(RPF: Resource Packaging Formula):個別のコンテンツごとにパッケージを構成しポータブル仕様としたもの。
 - リソース分離式(RSF: Resource Separated Formula):biac ファイルとリソースファイルが別の場所にあるもの。サーバなどで用いる。
 
-biac ファイル、
+biac ファイルは全ての場合で必要であり、また RPF(リソース梱束式)の場合 lobpkg ファイルに梱束される。
 
-なお、biac ファイルとは[Lobiac Article](#lobiac-article)をいう。
+リソースデータを記事中に埋め込む場合はリソースファイル及び ritab ファイルは RIF(リソース包含式)以外の全ての場合で必要である。
+
+なお、biac ファイルとは[Lobiac Article](#lobiac-article)を、ritab ファイルとは[Resource Index Table](#resource-index-table)を、lobpkg ファイルとは[Lobiac Package](#lobiac-package)をいう。
 
 ## Lobiac Article
 
@@ -29,13 +31,13 @@ Lobiac Article(`biac`)は、[ChestDD TC91 Cardinals](./../tc/crd.291/spec.md) �
 ---
 
 `lob.conf`グループには設定およびその他メタ情報が記述され、`lob.art`グループには記事本体がバージョニング付きで記述される。
-RIF(リソース包含式)における`lob.rit`グループには Resource Index Table に記載される内容が、同じく`lob.res`グループには記事に埋め込まれるべきリソースデータが記録される。リソースデータのうち、バイナリデータはテキストデータに変換して記録される必要がある。
+RIF(リソース包含式)における`lob.kind`グループには Resource Index Table に記載される内容が、同じく`lob.res`グループには記事に埋め込まれるべきリソースデータが記録される。リソースデータのうち、バイナリデータはテキストデータに変換して記録される必要がある。
 
 ### `lob.conf`グループ
 
 設定およびメタ情報を制約 yaml 形式で記述する。ただし最上位のリスト表記は省略する。
 
-グループ内部は`List<Map<String|num|Object>>`である。
+グループ内部は`Map<String, Map<String, String|List<String>|List<List<String>>|DateTime|Map<class:Hash,DateTime>|class:Version|enum:Forml>>`である。
 
 ---
 
@@ -90,7 +92,7 @@ RIF(リソース包含式)における`lob.rit`グループには Resource Index
 
 `.`で始まる行はデータである。ハッシュ値及び`:`に後続して行データが記述される。
 
-### `lob.rit`グループ
+### `lob.kind`グループ
 
 RIF(リソース包含式)において、Resource Index Table に記載されるべき内容を記述する。
 
@@ -125,7 +127,20 @@ $txt svg 19
 
 ## Resource Index Table
 
-Lobiac Article(`biac`)は、[ChestDD TC92 Tabular](./../tc/tab.292/spec.md) に準拠して構成されるテキストファイルである。ドキュメント形式ではなくデータ形式を用いる。
+Resource Index Table(`ritab`)は、[ChestDD TC92 Tabular](./../tc/tab.292/spec.md) に準拠して構成されるテキストファイルである。ドキュメント形式ではなくデータ形式を用いる。
+
+`lob.kind`グループ(なおこの場合の`lob`も Lobiac Article に同じ)でテーブルデータを囲う。
+
+テーブルのヘッダーには Kind, Ext, Ident, Path, CreateDate, LastModDate を記述する。各カラムには次の内容を記す。
+
+- Kind: txt(テキストファイル)又は bin(バイナリファイル)
+- Ext: ファイルの拡張子
+- Ident: ファイルの識別名
+- Path: ファイルのの実パス
+- CreateDate: ファイルの作成日時
+- LastModDate: ファイルの最終更新日時
+
+ただし、表計算機能は用いることができない。
 
 ## Resource Files
 
@@ -137,7 +152,7 @@ Lobiac Article(`biac`)は、[ChestDD TC92 Tabular](./../tc/tab.292/spec.md) に�
 
 ---
 
-リソースファイルのファイル名は、そのリソースデータの識別名に、そのファイルの拡張子を与えたものである。
+リソースファイルのファイル名は任意に指定することができる。
 
 ## Lobiac Package
 

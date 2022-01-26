@@ -25,6 +25,7 @@ Language for Operating BuildUp and Issuing of Accumulated Content-Data
 ```biac
 <conf>
 version: v0.1.0.1
+foml: RPF
 title.main: Main Title
 title.sub: SubTitle
 title.serial: Ident of Series
@@ -73,9 +74,14 @@ $end
 
 ```ritab
 <Kind>
-Ext,Ident,Path,CreateDate,LastModDate
+{|tab ritab|}
+! Kind | Ext | Ident | Path | CreateDate | LastModDate |
+| txt | svg | obj.ident.to.file1 | actual.path.to.file1.svg | 2022-1-25 11:5:24 | 2022-1-26 14:26:24 |
+| bin | png | obj.ident.to.file2 | actual.path.to.file2.png | 2022-1-23 12:5:04 | 2022-1-23 12:26:31 |
+| bin | pdf | obj.ident.to.file3 | actual.path.to.file3.pdf | 2021-5-25 11:5:58 | 2021-12-21 16:45:10 |
 :
 :
+{|endtab|}
 </Kind>
 
 ```
@@ -88,6 +94,6 @@ Lobiac Package は以下のディレクトリ構成を zip 圧縮したもので
   - index.biac
   - assets.ritab
   - `assets`
-    - obj.ident.to.file1.ext
-    - obj.ident.to.file2.ext
-    - obj.ident.to.file3.ext
+    - actual.path.to.file1.ext
+    - actual.path.to.file2.ext
+    - actual.path.to.file3.ext
