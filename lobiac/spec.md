@@ -16,6 +16,8 @@ biac ファイルは全ての場合で必要であり、また RPF(リソース�
 
 なお、biac ファイルとは[Lobiac Article](#lobiac-article)を、ritab ファイルとは[Resource Index Table](#resource-index-table)を、lobpkg ファイルとは[Lobiac Package](#lobiac-package)をいう。
 
+Lobiac 言語におけるテキストファイルは、Unicode 又は Sicode の文字コードによって表現されていなければならず、その他の文字コードは無効である。
+
 ## Lobiac Article
 
 Lobiac Article(`biac`)は、[ChestDD TC91 Cardinals](./../tc/crd.291/spec.md) に準拠して構成されるテキストファイルである。
