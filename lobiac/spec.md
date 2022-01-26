@@ -163,9 +163,9 @@ Lobiac Package は以下のディレクトリ構成を zip 圧縮しバイト列
   - index.biac
   - assets.ritab
   - `assets`
-    - obj.ident.to.file1.ext
-    - obj.ident.to.file2.ext
-    - obj.ident.to.file3.ext
+    - actual.path.to.file1.ext
+    - actual.path.to.file2.ext
+    - actual.path.to.file3.ext
 
 - `root`: パッケージルートディレクトリ。そのパッケージを認識可能な任意の名称でよい。
 - `assets`: リソースディレクトリ。そのパッケージで用いるリソースの実データを収める。
