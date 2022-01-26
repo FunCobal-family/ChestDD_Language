@@ -10,10 +10,11 @@ Language for Operating BuildUp and Issuing of Accumulated Content-Data
 
 ## 方式
 
-ドキュメントに埋め込むリソースの配置によって 2 種の方式に分れる。
+ドキュメントに埋め込むリソースの配置によって 3 種の方式に分れる。
 
-- リソース包含式(RIF: Resource Included Formula): 個別のコンテンツごとにパッケージを構成しポータブル仕様としたもの。詳細は[`.lobpkg`: Lobiac Package](#`.lobpkg`: Lobiac Package)
-- リソース分離式(RSF: Resource Separated Formula)
+- リソース包含式(RIF: Resource Included Formula): biac ファイルにリソースデータも共に埋め込み記述したもの。
+- リソース梱束式(RPF: Resource Packaging Formula):個別のコンテンツごとにパッケージを構成しポータブル仕様としたもの。
+- リソース分離式(RSF: Resource Separated Formula):biac ファイルとリソースファイルが別の場所にあるもの。サーバなどで用いる。
 
 ## `.biac`: Lobiac Article
 
@@ -40,7 +41,8 @@ date.modified:
   - hash1: timestamp1
   - hash2: timestamp2
   - hash3: timestamp3
-res:
+res.table: ./assets.ritab
+res.use:
   - :kind:obj.ident.to.file1
   - :kind:obj.ident.to.file2
 doc.md: egfmd
@@ -48,7 +50,7 @@ doc.xml: none
 doc.sgml: html
 </conf>
 <art>
-$&md,sgml
+$&lang[md]
 - line
 .hash1:# title
 - line
