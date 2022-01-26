@@ -8,6 +8,8 @@ Language for Operating BuildUp and Issuing of Accumulated Content-Data
 
 ヘッドレスコンテンツ管理システムなどで用いるために策定された。
 
+仕様書は[Specifications of Lobiac](./spec.md)を参照。
+
 ## 方式
 
 ドキュメントに埋め込むリソースの配置によって 3 種の方式に分れる。
