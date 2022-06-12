@@ -1,0 +1,36 @@
+#! -m std -d partial {core.*} -v ^0.0.0 &&& ^1.0.0
+<head>
+name: ChestDD Standard Types
+include: type
+-- refer as types.std
+</head>
+<namespace core.kernel></namespace>
+<namespace core.collection></namespace>
+<namespace core></namespace>
+<namespace types.core></namespace>
+<namespace collection></namespace>
+<namespace data></namespace>
+<namespace core.math>
+!proto ['num]{
+
+}
+!typedef ['int]{
+  -- 差分継承により他のオブジェクトからクローン。クローン元を親オブジェクトと呼ぶとき、そのオブジェクト自身にない要素の解釈を親オブジェクトに委譲することができる。
+  clone: num
+  -- リテラル定義。構文と順序、
+  literal:
+    -- 一行コードのFCPEGによる構文定義。他に`peguse@URI`を指定することによりFCPEGファイルを、pegファイルを、picket@ident(デフォルトホスト以外はこれに加えてpeghost@URI)を指定することによりPicketを用いることができる。
+    pegline: [0-1]
+    {-- 順序(下記列挙は一例. 順序があることと関数二箇`operator =(other)`, `operator <(other)`が定義されていることは同値)
+    - `math.to`: 数学集合順序/全順序
+    - `math.po`: 数学集合順序/半順序
+    - `math.qo`: 数学集合順序/前順序
+    - `code.asc`: 文字集合順序/ASCII集合コードポイント順序
+    - `code.u`: 文字集合順序/Unicode集合コードポイント順序
+    - `code.s`: 文字集合順序/Sicode集合コードポイント順序
+    - `code.`: 文字集合順序/
+    - `dict.`: 辞書集合順序/
+    --}
+    ordered: math.to
+}
+</namespace>
