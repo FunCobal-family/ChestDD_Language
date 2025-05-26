@@ -17,9 +17,9 @@
 | 型/数量 | 自身 | - | yaml<br /> | - | - | - | - | - |
 | 型/数量 | 座標 | point\<val:: val<: num\><br />`:(x,y,...)` | (なし) | - | - | - | - | - |
 | 型/数量 | 範囲 | range\<val:: val<: num\><br />`:[min- ... max; iv]` | (なし) | - | - | - | - | - |
-| 型/構造 | リスト | list | seq<br />`- val`(B)<br />`[val, val,...]`(F) | - | - | - | - | - |
-| 型/構造 | マップ | map | map\<Key,val\><br />`key: val`(B)<br />`{key: val, key: val,...}`(F) | - | - | - | - | - |
-| 型/構造 | 順序マップ | seq\<Key,val\><br />(list\<map\<Key,val\>\>のエイリアス) | omap<br />`- key: val`(B)<br />`[key: val, key: val,...]`(F) | - | - | - | - | - |
+| 型/構造 | リスト | list\<val\> | seq<br />`- val`(B)<br />`[val, val,...]`(F) | - | - | - | - | - |
+| 型/構造 | マップ | map\<Key,val\><br />(set\<pair\<Key,val\>\>のエイリアス) | map\<Key,val\><br />`key: val`(B)<br />`{key: val, key: val,...}`(F) | - | - | - | - | - |
+| 型/構造 | 順序マップ | seq\<Key,val\><br />(list\<pair\<Key,val\>\>のエイリアス) | omap<br />`- key: val`(B)<br />`[key: val, key: val,...]`(F) | - | - | - | - | - |
 | 型/構造 | 組(KVペア) | pair<br />`key: val` | pairs<br />`key: val` | - | - | - | - | - |
 | 型/構造 | 集合 | set\<val\><br />`? val`(B)<br />`(val, val,...)`(F) | set<br />`? val`(B)<br />`{val, val,...}`(F) | - | - | - | - | - |
 | 型/構造 | 表 | table\<key\><br />`{\| \|}` | (なし) | - | (なし) | - | - | - |
